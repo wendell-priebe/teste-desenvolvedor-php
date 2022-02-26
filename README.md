@@ -1,58 +1,18 @@
 [![](https://dotlib.com/theme/img/logos/logo.png)](http://www.dotlib.com)
 
-# Nossa empresa
+# Teste Júnior - [Desenvolvedor PHP Júnior](teste-junior.md)
 
-A Dot.Lib distribui conteúdo online científico e acadêmico a centenas de instituições espalhadas pela América Latina. Temos como parceiras algumas das principais editoras científicas nacionais e internacionais. Além de prover conteúdo, criamos soluções que atendem às necessidades de nossos clientes e editoras.
 
-## Conheça mais sobre a Dotlib
+### *Como posso rodar o projeto?*
+Passo a passo [Aqui!](crud/README.md) 
 
-https://dotlib.com/
+### *Descrição*
+Olá, o usuário é capaz de fazer operações de cadastro, edição e exclusão nos CRUDs de Clientes e Produtos, o CRUD de Pedidos não foi finalizado. No tempo que eu dispunha dos 5 dias fiz o máximo possível :sweat_drops:
 
-https://www.linkedin.com/company/dotlib/
+Utilizando CSS puro, fiz um layout simples, focando principalmente no backend, pois a vaga é Backend PHP Developer. Fico grato por receber um feedback/opinião/dica.
 
-# Descrição da vaga
+### *Diagrama do banco de dados*
+![Diagram-crud](https://user-images.githubusercontent.com/61431715/155819556-e88f85e3-1cf7-4a9f-9640-1bb8396949ce.png)
 
-Buscamos profissionais que sejam apaixonados por desenvolvimento, inovação e novas tecnologias, para integrar nosso time em projetos baseados em Node.JS, Laravel, React.JS e React Native.
-
-## Requisitos
-
-### **Obrigatórios:**
-
-- Mínimo 1 ano de experiência em desenvolvimento de sites e sistemas em Laravel;
-- Desenvolvimento de APIs RESTful;
-- Conhecimentos em SQL e NoSQL;
-- Conhecimentos em Docker;
-- Controle de versões (GIT).
-
-### **Diferenciais:**
-
-- TDD;
-- Conhecimentos em Node.JS;
-- Conhecimentos em Elasticsearch;
-- Conhecimentos em serviços AWS;
-- Experiência em metodologias ágeis (Scrum/Kanban).
-
-## Benefícios
-
-- Salário compatível com o mercado;
-- Vale Refeição ou Vale Alimentação;
-- Plano de Saúde e Odontológico;
-- Equipe unida, divertida e apaixonada por hambúrgueres;
-- TECH DAY - Evento trimestral de palestras sobre tecnologia;
-- Friday's Talk - Bate papo descontraído sobre tecnologia, apresentação de POCs de estudos, etc;
-- Emendas em feriados nacionais.
-
-## Contratação
-
-Regime: CLT
-
-## Alocação
-
-100% Remoto
-
-## Como se candidatar
-
-Para se candidatar, basta acessar a url de acordo com o nível e realizar o teste para a vaga:
-
-- [Desenvolvedor PHP Júnior](teste-junior.md)
-- [Desenvolvedor PHP Pleno](teste-pleno.md)
+### *Video rápido mostrando o sistema e observações*
+[![Watch the video](https://i.imgur.com/vKb2F1B.png)](https://youtu.be/fxxXXHyFqkE)
