@@ -34,5 +34,10 @@ Cria as tabelas do banco de dados através do migrate
 php artisan migrate
 ```
 
+Cria lista com 15 clientes e 15 prdutos
+```sh
+php artisan db:seed --class=CustomersTableSeeder
+php artisan db:seed --class=ProductsTableSeeder
+```
 Acesse o projeto
 [http://localhost:8989](http://localhost:8989)
