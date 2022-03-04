@@ -37,6 +37,8 @@ php artisan migrate
 Cria lista com 15 clientes e 15 prdutos
 ```sh
 php artisan db:seed --class=CustomersTableSeeder
+```
+```sh
 php artisan db:seed --class=ProductsTableSeeder
 ```
 Acesse o projeto
