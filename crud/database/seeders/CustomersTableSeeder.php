@@ -24,7 +24,7 @@ class CustomersTableSeeder extends Seeder
         //     ->count(10)
         //     ->create();
 
-        for ($i=0; $i < 15 ; $i++) {
+        for ($i=0; $i < 20 ; $i++) {
             // https://github.com/fzaninotto/Faker
             $faker = Faker\Factory::create('pt_BR');
             //$faker->cellphonenumber
