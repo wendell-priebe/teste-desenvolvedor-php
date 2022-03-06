@@ -1,10 +1,11 @@
-FROM php:8.1.1-fpm
+#   Defina a imagem q vai ser usada do docker hub
+FROM php:8.1.1-fpm 
 
-# Arguments
+# Argumentos, são declarados aq ou são passados pelo docker-compose.yml
 ARG user=carlos
 ARG uid=1000
 
-# Install system dependencies
+# Instala dependencias q são obrigatorias para laravel dentro do container
 RUN apt-get update && apt-get install -y \
     git \
     curl \
@@ -14,26 +15,29 @@ RUN apt-get update && apt-get install -y \
     zip \
     unzip
 
-# Clear cache
+# Limpa cache
 RUN apt-get clean && rm -rf /var/lib/apt/lists/*
 
-# Install PHP extensions
+# Instala/habilita PHP extensions
 RUN docker-php-ext-install pdo_mysql mbstring exif pcntl bcmath gd sockets
 
-# Get latest Composer
+# Get latest Composer copia o compose para disponibilizar o uso em todos diretorios da maquina
 COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 
 # Create system user to run Composer and Artisan Commands
+# cria o usuario conforme definido em argumentos
+# dá permissao e adiciona a grupo do sistema
 RUN useradd -G www-data,root -u $uid -d /home/$user $user
 RUN mkdir -p /home/$user/.composer && \
     chown -R $user:$user /home/$user
 
-# Install redis
+# Instala redis # caso precisa
 RUN pecl install -o -f redis \
     &&  rm -rf /tmp/pear \
     &&  docker-php-ext-enable redis
 
 # Set working directory
+# indica a localizaçao dos arquivos e qual usuario
 WORKDIR /var/www
 
 USER $user

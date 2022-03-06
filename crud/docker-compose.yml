@@ -1,11 +1,15 @@
-version: "3.7"
+version: "3.8"
 
 services:
-    # image project
-    app:
+    # image customizada, criada no Dockerfile
+    # para acessar esse container "docker-compose exec app bash"# assim podendo rodar comando do php/laravel dentro
+    app: # Declarar o nome desse container no arquivo de conf do nginx
         build:
-            context: .
-            dockerfile: Dockerfile
+            # args:  # argumentos passados para dentro do dockerfile
+            #     user: wendell 
+            #     uid: 1000
+            context: ./
+            dockerfile: Dockerfile # esse container app, é criado uma image q é o Dockerfile
         container_name: laravel-9
         image: especializati/laravel9-app
         restart: unless-stopped
@@ -17,7 +21,7 @@ services:
         networks: 
             - laravel-9
     
-    # nginx
+    # nginx server PHP # sempre se lembrar de criar o arquivo de conf dos volumes
     nginx:
         image: nginx:alpine
         container_name: nginx
@@ -26,7 +30,7 @@ services:
             - "8989:80"
         volumes: 
             - ./:/var/www
-            - ./docker/nginx/:/etc/nginx/conf.d/
+            - ./docker/nginx/:/etc/nginx/conf.d/ #o arquivo de configuração criado em docker/nginx é copiado para a pasta destino
         networks: 
             - laravel-9
 
@@ -35,27 +39,27 @@ services:
         image: mysql:5.7.22
         container_name: mysql
         restart: unless-stopped
-        environment: 
+        environment: # variaveis de hambiente sendo puxadas do .env # são os DB_...
             MYSQL_DATABASE: ${DB_DATABASE}
             MYSQL_ROOT_PASSWORD: ${DB_PASSWORD}
             MYSQL_PASSWORD: ${DB_PASSWORD}
             MYSQL_USER: ${DB_USERNAME}
-        volumes: 
-            - ./.docker/mysql/dbdata:/var/lib/mysql
+        volumes: # mapeia os arquivos de var/lib e joga para .docker # caso mate o container não perde os arquivos, pois estao em .docker
+            - ./.docker/mysql/dbdata:/var/lib/mysql # colocar no gitignore /.docker para não enviar os arquivos do banco ao git
         ports: 
             - "3388:3306"
         networks: 
             - laravel-9
 
     # queue
-    queue:
+    queue: # imagem criada
         image: especializati/laravel9-app
         container_name: queue
         restart: unless-stopped
-        command: "php artisan queue:work"
+        command: "php artisan queue:work" # quando é criado fica rodando um comando para filas do laravel
         volumes: 
             - ./:/var/www
-        depends_on: 
+        depends_on: # esse container depende para funcionar dos:
             - redis
             - app
         networks: 
